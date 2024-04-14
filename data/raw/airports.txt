@@ -1,0 +1,12 @@
+SBCF latitude -19,63571 e longitude -43,96693. O aeroporto tem uma pista de decolagem: 16/34
+SBSP latitude -23,62695 e longitude -46,65503. O aeroporto tem pistas de decolagem 2: 17R/35L e 17L/35R
+SBGR latitude -23,43227 e longitude -46,46948. O aeroporto tem pistas de decolagem 2: 10L/28R e 10R/28L
+SBKP latitude -23,00740 e longitude -47,13450. O aeroporto tem uma pista de decolagem: 15/33
+SBRF latitude -8,12598 e longitude -34,92332. O aeroporto tem uma pista de decolagem: 18/36
+SBPA latitude -29,99462 e longitude -51,17120. O aeroporto tem uma pista de decolagem: 11/29
+SBRJ latitude -22,91044 e longitude -43,16320. O aeroporto tem pistas de decolagem 2: 2R/20L e 2L/20R
+SBBR latitude -15,87120 e longitude -47,91933. O aeroporto tem pistas de decolagem 2: 11R/29L e 11L/29R 
+SBCT latitude -25,52882 e longitude -49,17316. O aeroporto tem pistas de decolagem 2: 15/33 e 11/29
+SBSV latitude -12,91095 e longitude -38,33108. O aeroporto tem pistas de decolagem 2: 10/28 e 17/35
+SBGL latitude -22,80888 e longitude -43,24378. O aeroporto tem pistas de decolagem 2: 10/28 e 15/33
+SBFL latitude -27,67070 e longitude -48,54697. O aeroporto tem pistas de decolagem 2: 14/32 e 3/21
