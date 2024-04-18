@@ -221,4 +221,5 @@ dependencies:
       - types-python-dateutil==2.9.0.20240316
       - make==4.3
       - urllib3==2.2.1
+      - pyarrow==15.0.2
       - e .
