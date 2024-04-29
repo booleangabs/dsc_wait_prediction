@@ -17,8 +17,11 @@ data:
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/make_dataset.py data/raw data/interm
 
 ## Make Features
-features:
+features: data
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/features/build_features.py data/interm data/processed
+
+train: features
+	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/models/train_model.py data/processed models
 
 ## Delete all compiled Python files
 clean:

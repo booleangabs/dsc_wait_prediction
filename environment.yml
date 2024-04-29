@@ -222,4 +222,5 @@ dependencies:
       - make==4.3
       - urllib3==2.2.1
       - pyarrow==15.0.2
+      - GPUtil
       - e .

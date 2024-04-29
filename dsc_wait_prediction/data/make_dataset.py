@@ -4,7 +4,6 @@ import logging
 from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 import requests
-
 import polars as pl
 
 
@@ -105,7 +104,7 @@ def main(input_filepath, output_filepath):
     assert ap_data_file.is_file(), f'Dataset path "{ap_data_file.absolute()}" is invalid.'
     airports_ds = Path(output_filepath).joinpath("airports.csv")
     if airports_ds.is_file():
-        logger.info('transformed aiport data table already exists (skipping process)')
+        logger.info('transformed aiport data already exists (skipping process)')
     else:    
         ap_info = open(ap_data_file, "rt").readlines()
         ap_info = parse_airport_info(ap_info)
@@ -113,23 +112,35 @@ def main(input_filepath, output_filepath):
         df = pl.DataFrame(ap_info, schema=columns, orient="row")
         df.write_csv(airports_ds)
 
-    logger.info('Downloading parsed metar data')
+    logger.info('downloading parsed metar data')
     train_val_url = "https://www.dropbox.com/scl/fi/ga74carg8xb0b2nx4s0tu/metar_data.csv?rlkey=9ifv5gw7rrx8cm6z5up7umsql&st=p5rryx7j&dl=1"
     train_val_metar_file = Path(output_filepath).joinpath("metar_data.csv")
-    download_csv(train_val_url, train_val_metar_file)
+    if train_val_metar_file.is_file():
+        logger.info('train+val parsed metar data already exists (skipping process)')
+    else:
+        download_csv(train_val_url, train_val_metar_file)
 
     test_url = "https://www.dropbox.com/scl/fi/9e4p0jm4j5kohh5monkp4/test_metar_data.csv?rlkey=hqn3vp32m8n4dwbxs6y0zmked&st=sycsewtr&dl=1"
     test_metar_file = Path(output_filepath).joinpath("test_metar_data.csv")
-    download_csv(test_url, test_metar_file)
+    if test_metar_file.is_file():
+        logger.info('test parsed metar data already exists (skipping process)')
+    else:
+        download_csv(test_url, test_metar_file)
 
-    logger.info('Downloading processed image data')
+    logger.info('downloading processed image data')
     train_val_url = "https://www.dropbox.com/scl/fi/0jixzvlpuvbb20tvnhpb4/image_color_data.csv?rlkey=4plryz14zqf4cb3k7unqocj9p&st=sigq0g6c&dl=1"
     train_val_img_file = Path(output_filepath).joinpath("image_color_data.csv")
-    download_csv(train_val_url, train_val_img_file)
+    if train_val_img_file.is_file():
+        logger.info('train+val processed image data already exists (skipping process)')
+    else:
+        download_csv(train_val_url, train_val_img_file)
 
     test_url = "https://www.dropbox.com/scl/fi/bt1a4uqhl5rgfgmd0ym8w/test_image_color_data.csv?rlkey=hoqu5rxdda3s6j97t7dzm6msf&st=zhok3ozu&dl=1"
     test_img_file = Path(output_filepath).joinpath("test_image_color_data.csv")
-    download_csv(test_url, test_img_file)
+    if test_img_file.is_file():
+        logger.info('test processed image data already exists (skipping process)')
+    else:
+        download_csv(test_url, test_img_file)
 
 
 if __name__ == '__main__':
