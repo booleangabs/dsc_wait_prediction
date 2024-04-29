@@ -14,7 +14,11 @@ PYTHON_INTERPRETER = python
 
 ## Make Dataset
 data: 
-	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/make_dataset.py data/raw data/interim
+	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/make_dataset.py data/raw data/interm
+
+## Make Features
+features:
+	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/features/build_features.py data/interm data/processed
 
 ## Delete all compiled Python files
 clean:
